@@ -1,6 +1,5 @@
 package ru.ruwebnames.myfirstgitprogect.presentation
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.ruwebnames.myfirstgitprogect.data.ShopListRepositoryImpl
 import ru.ruwebnames.myfirstgitprogect.domain.DeleteShopItemUseCase
@@ -13,14 +12,10 @@ class MainViewModel : ViewModel() {
     private val repository = ShopListRepositoryImpl
 
     private val getShopListUseCase = GetShopListUseCase(repository)
-    private val editShopItemUseCase = EditShopItemUseCase(repository)
     private val deleteShopItemUseCase = DeleteShopItemUseCase(repository)
+    private val editShopItemUseCase = EditShopItemUseCase(repository)
 
     val shopList = getShopListUseCase.getShopList()
-
-//    fun editShopItem(shopItem: ShopItem) {
-//        val oldItem = getShopItem
-//    }
 
     fun deleteShopItem(shopItem: ShopItem) {
         deleteShopItemUseCase.deleteShopItem(shopItem)
